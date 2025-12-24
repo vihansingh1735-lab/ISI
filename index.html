@@ -3,15 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ALPHA CONTINGENCY FORCE | CHRISTMAS EDITION</title>
+<title>ACF | Christmas Edition</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Exo+2:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Exo+2:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+
 body{
-background:#0b0f0b;
+background:#0b0b0b;
 color:#fff;
 font-family:'Exo 2',sans-serif;
 overflow-x:hidden;
@@ -23,8 +24,8 @@ position:fixed;
 inset:0;
 pointer-events:none;
 background:radial-gradient(#fff 1px, transparent 1px);
-background-size:15px 15px;
-animation:snow 20s linear infinite;
+background-size:18px 18px;
+animation:snow 18s linear infinite;
 opacity:.35;
 z-index:-1;
 }
@@ -36,10 +37,11 @@ to{background-position:0 1200px}
 /* HEADER */
 header{
 position:fixed;
-top:0;width:100%;
+top:0;
+width:100%;
 padding:15px 30px;
-background:rgba(10,15,10,.95);
-border-bottom:3px solid #c0392b;
+background:#000;
+border-bottom:2px solid #c0392b;
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -48,20 +50,19 @@ z-index:1000;
 .logo{
 font-family:'Orbitron',sans-serif;
 font-size:2.2rem;
-background:linear-gradient(45deg,#e74c3c,#2ecc71);
--webkit-background-clip:text;
-color:transparent;
+color:#2ecc71;
 }
 nav a{
 color:#fff;
 text-decoration:none;
 margin-left:20px;
-padding:10px 18px;
+padding:8px 14px;
 border-radius:6px;
-border:1px solid rgba(255,255,255,.15);
 transition:.3s;
 }
-nav a:hover{background:#2ecc71;color:#000}
+nav a:hover{
+background:#c0392b;
+}
 
 /* HERO */
 .hero{
@@ -75,102 +76,59 @@ padding:120px 20px 40px;
 }
 .hero h1{
 font-family:'Orbitron',sans-serif;
-font-size:3.5rem;
+font-size:3.2rem;
+margin-bottom:15px;
 }
-.hero span{display:block}
-.alpha{color:#e74c3c}
-.contingency{color:#fff}
-.force{color:#2ecc71}
-
+.hero h1 span{
+color:#2ecc71;
+}
 .tagline{
-margin:15px 0 30px;
-letter-spacing:3px;
 color:#ccc;
+letter-spacing:3px;
+margin-bottom:30px;
 }
-
 .cta{
-padding:16px 40px;
-border-radius:40px;
-background:linear-gradient(45deg,#e74c3c,#2ecc71);
-color:#000;
-font-weight:700;
+padding:14px 36px;
+border-radius:30px;
+background:#c0392b;
+color:#fff;
+font-weight:600;
 text-decoration:none;
 transition:.3s;
 }
-.cta:hover{transform:scale(1.1)}
+.cta:hover{
+background:#2ecc71;
+color:#000;
+}
 
-/* SECTIONS */
+/* CHRISTMAS DECOR */
+.decor{
+margin-top:30px;
+font-size:1.8rem;
+color:#e74c3c;
+}
+
+/* SECTION */
 section{
-max-width:1100px;
+max-width:900px;
 margin:80px auto;
 padding:0 20px;
+text-align:center;
 }
 .section-title{
 font-family:'Orbitron',sans-serif;
-color:#e74c3c;
-text-align:center;
-margin-bottom:35px;
-font-size:2.3rem;
-}
-
-/* GRID + CARDS */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-.card{
-background:rgba(255,255,255,.05);
-padding:25px;
-border-radius:15px;
-border-left:5px solid #2ecc71;
-transition:.3s;
-}
-.card:hover{
-transform:translateY(-8px);
-border-left-color:#e74c3c;
-}
-
-/* LOGIN */
-input{
-width:100%;
-padding:12px;
-margin-bottom:12px;
-border-radius:6px;
-border:none;
-outline:none;
-}
-
-/* DISCORD */
-.discord{
-text-align:center;
-background:rgba(88,101,242,.15);
-padding:45px;
-border-radius:20px;
-border:2px solid #5865F2;
+font-size:2.2rem;
+color:#c0392b;
+margin-bottom:20px;
 }
 
 /* FOOTER */
 footer{
 text-align:center;
-padding:40px;
+padding:35px;
 border-top:2px solid #c0392b;
 background:#000;
-color:#888;
-}
-
-/* SNOW SOUND BUTTON */
-.sound-btn{
-position:fixed;
-bottom:20px;
-right:20px;
-padding:12px 20px;
-border-radius:30px;
-border:none;
-background:#2ecc71;
-font-weight:bold;
-cursor:pointer;
-z-index:9999;
+color:#777;
 }
 </style>
 </head>
@@ -178,114 +136,50 @@ z-index:9999;
 <body>
 <div class="snow"></div>
 
-<!-- ❄️ SNOW SOUND -->
-<audio id="snowSound" loop>
-<source src="https://cdn.pixabay.com/audio/2022/11/17/audio_4f96d3e4cc.mp3" type="audio/mpeg">
-</audio>
-<button class="sound-btn" onclick="toggleSnow()">❄️ Snow Sound</button>
-
 <header>
-<div class="logo">ACF</div>
-<nav>
-<a href="#countdown">COUNTDOWN</a>
-<a href="#login">LOGIN</a>
-<a href="#ranks">RANKS</a>
-<a href="#discord">DISCORD</a>
-</nav>
+  <div class="logo">ACF</div>
+  <nav>
+    <a href="#about">ABOUT</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
 </header>
 
 <section class="hero">
-<h1>
-<span class="alpha">ALPHA</span>
-<span class="contingency">CONTINGENCY</span>
-<span class="force">FORCE</span>
-</h1>
-<p class="tagline">DISCIPLINE • UNITY • READINESS</p>
-<a href="#login" class="cta">ENTER DASHBOARD</a>
+  <h1>WELCOME TO <span>ACF</span></h1>
+  <p class="tagline">DISCIPLINE • UNITY • READINESS</p>
+
+  <a href="#" class="cta">
+    <i class="fas fa-tree"></i> CHRISTMAS EDITION
+  </a>
+
+  <div class="decor">
+    🎄 ❄️ 🎁
+  </div>
 </section>
 
-<!-- 🎄 COUNTDOWN -->
-<section id="countdown" style="text-align:center">
-<h2 class="section-title">🎄 Christmas Countdown</h2>
-<p id="timer" style="font-size:1.6rem"></p>
+<section id="about">
+  <h2 class="section-title">ABOUT ACF</h2>
+  <p style="color:#ccc;line-height:1.6">
+    ACF is a coordinated force built on discipline, teamwork, and preparedness.
+    This Christmas edition reflects unity and seasonal spirit while keeping
+    everything clean and minimal.
+  </p>
 </section>
 
-<!-- 🔐 LOGIN -->
-<section id="login">
-<h2 class="section-title">ACF LOGIN</h2>
-<div class="card" style="max-width:400px;margin:auto">
-<input id="user" placeholder="Username">
-<input id="rank" placeholder="Rank (e.g. Major)">
-<button class="cta" onclick="login()" style="width:100%">LOGIN</button>
-</div>
-<p id="welcome" style="text-align:center;margin-top:20px;font-size:1.2rem"></p>
-</section>
-
-<!-- 🎖️ RANKS -->
-<section id="ranks">
-<h2 class="section-title">ACF RANK STRUCTURE</h2>
-<div class="grid">
-<div class="card">🟦 Brigadier</div>
-<div class="card">🟥 Lieutenant</div>
-<div class="card">🟩 Colonel</div>
-<div class="card">🟧 Major</div>
-<div class="card">🟨 Master Sergeant</div>
-<div class="card">🟧 Command Sergeant</div>
-<div class="card">🟡 Sergeant</div>
-<div class="card">🟢 Enforcer</div>
-<div class="card">🔴 Sentinel</div>
-<div class="card">🟤 Sepoy</div>
-</div>
-</section>
-
-<!-- 💬 DISCORD -->
-<section id="discord" class="discord">
-<i class="fab fa-discord fa-3x"></i>
-<h2 style="margin:15px 0">ACF DISCORD COMMUNITY</h2>
-<p>Join coordination, updates, and rank discussions.</p>
-<a href="https://discord.gg/YOUR_INVITE" class="cta" style="margin-top:20px;display:inline-block">JOIN DISCORD</a>
+<section id="contact">
+  <h2 class="section-title">CONNECT</h2>
+  <p style="color:#ccc">
+    Join our community and stay connected during the festive season.
+  </p>
+  <p style="margin-top:15px;font-size:1.5rem">
+    🎄 ❄️ 🎅
+  </p>
 </section>
 
 <footer>
-<p>© 2025 ALPHA CONTINGENCY FORCE</p>
-<p>Christmas Edition 🎄</p>
+  <p>© 2025 ACF</p>
+  <p>Christmas Edition 🎄</p>
 </footer>
-
-<script>
-/* SNOW SOUND */
-let playing=false;
-function toggleSnow(){
-const s=document.getElementById("snowSound");
-playing?s.pause():s.play();
-playing=!playing;
-}
-
-/* LOGIN */
-function login(){
-const u=document.getElementById("user").value;
-const r=document.getElementById("rank").value;
-if(!u||!r) return alert("Fill all fields");
-document.getElementById("welcome").innerText=`Welcome ${r} ${u} to Alpha Contingency Force`;
-}
-
-/* COUNTDOWN */
-function countdown(){
-const now=new Date();
-const xmas=new Date(now.getFullYear(),11,25);
-const d=xmas-now;
-if(d<=0){
-document.getElementById("timer").innerText="🎅 Merry Christmas!";
-return;
-}
-const days=Math.floor(d/(1000*60*60*24));
-const hrs=Math.floor(d/(1000*60*60)%24);
-const mins=Math.floor(d/(1000*60)%60);
-document.getElementById("timer").innerText=
-`${days} Days • ${hrs} Hours • ${mins} Minutes`;
-}
-setInterval(countdown,1000);
-countdown();
-</script>
 
 </body>
 </html>
