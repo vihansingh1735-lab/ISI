@@ -12,13 +12,31 @@
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-background:#0b0b0b;
+background:
+linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+url('bg.jpg') center/cover no-repeat fixed;
 color:#fff;
 font-family:'Exo 2',sans-serif;
 overflow-x:hidden;
 }
 
-/* ❄️ SNOW */
+/* SCANLINES */
+body::after{
+content:"";
+position:fixed;
+inset:0;
+background:repeating-linear-gradient(
+to bottom,
+rgba(255,255,255,0.03),
+rgba(255,255,255,0.03) 1px,
+transparent 1px,
+transparent 3px
+);
+pointer-events:none;
+z-index:2;
+}
+
+/* SNOW */
 .snow{
 position:fixed;
 inset:0;
@@ -27,7 +45,7 @@ background:radial-gradient(#fff 1px, transparent 1px);
 background-size:18px 18px;
 animation:snow 18s linear infinite;
 opacity:.35;
-z-index:-1;
+z-index:1;
 }
 @keyframes snow{
 from{background-position:0 0}
@@ -40,7 +58,8 @@ position:fixed;
 top:0;
 width:100%;
 padding:15px 30px;
-background:#000;
+background:rgba(0,0,0,.7);
+backdrop-filter:blur(10px);
 border-bottom:2px solid #c0392b;
 display:flex;
 justify-content:space-between;
@@ -51,6 +70,7 @@ z-index:1000;
 font-family:'Orbitron',sans-serif;
 font-size:2.2rem;
 color:#2ecc71;
+text-shadow:0 0 15px #2ecc71;
 }
 nav a{
 color:#fff;
@@ -63,23 +83,7 @@ transition:.3s;
 nav a:hover{
 background:#c0392b;
 }
-.connect-btn{
-display:inline-block;
-margin-top:25px;
-padding:14px 38px;
-border-radius:30px;
-background:#2ecc71;
-color:#000;
-font-weight:600;
-text-decoration:none;
-transition:.3s;
-}
 
-.connect-btn:hover{
-background:#c0392b;
-color:#fff;
-transform:scale(1.05);
-}
 /* HERO */
 .hero{
 min-height:100vh;
@@ -89,20 +93,22 @@ justify-content:center;
 align-items:center;
 text-align:center;
 padding:120px 20px 40px;
+z-index:3;
+position:relative;
 }
 .hero h1{
 font-family:'Orbitron',sans-serif;
 font-size:3.2rem;
 margin-bottom:15px;
+text-shadow:0 0 20px #2ecc71;
 }
-.hero h1 span{
-color:#2ecc71;
-}
+.hero h1 span{color:#2ecc71}
 .tagline{
 color:#ccc;
 letter-spacing:3px;
 margin-bottom:30px;
 }
+
 .cta{
 padding:14px 36px;
 border-radius:30px;
@@ -111,31 +117,52 @@ color:#fff;
 font-weight:600;
 text-decoration:none;
 transition:.3s;
+box-shadow:0 0 25px rgba(192,57,43,.7);
 }
 .cta:hover{
 background:#2ecc71;
 color:#000;
-}
-
-/* CHRISTMAS DECOR */
-.decor{
-margin-top:30px;
-font-size:1.8rem;
-color:#e74c3c;
+transform:scale(1.05);
 }
 
 /* SECTION */
 section{
 max-width:900px;
 margin:80px auto;
-padding:0 20px;
+padding:30px;
 text-align:center;
+background:rgba(0,0,0,.55);
+backdrop-filter:blur(10px);
+border-radius:20px;
+z-index:3;
+position:relative;
+box-shadow:0 0 40px rgba(0,0,0,.6);
 }
 .section-title{
 font-family:'Orbitron',sans-serif;
 font-size:2.2rem;
 color:#c0392b;
 margin-bottom:20px;
+text-shadow:0 0 10px #c0392b;
+}
+
+/* CONNECT BUTTON */
+.connect-btn{
+display:inline-block;
+margin-top:25px;
+padding:14px 40px;
+border-radius:30px;
+background:#5865F2;
+color:#fff;
+font-weight:600;
+text-decoration:none;
+transition:.3s;
+box-shadow:0 0 25px rgba(88,101,242,.7);
+}
+.connect-btn:hover{
+background:#2ecc71;
+color:#000;
+transform:scale(1.08);
 }
 
 /* FOOTER */
@@ -143,8 +170,11 @@ footer{
 text-align:center;
 padding:35px;
 border-top:2px solid #c0392b;
-background:#000;
+background:rgba(0,0,0,.7);
+backdrop-filter:blur(10px);
 color:#777;
+z-index:3;
+position:relative;
 }
 </style>
 </head>
@@ -164,11 +194,11 @@ color:#777;
   <h1>WELCOME TO <span>ISI</span></h1>
   <p class="tagline">DISCIPLINE • UNITY • READINESS</p>
 
-  <a href="#" class="cta">
-    <i class="fas fa-tree"></i> CHRISTMAS EDITION
+  <a href="https://discord.gg/26cJSXYy3J" target="_blank" class="cta">
+    <i class="fab fa-discord"></i> JOIN DISCORD
   </a>
 
-  <div class="decor">
+  <div style="margin-top:25px;font-size:1.8rem;color:#e74c3c">
     🎄 ❄️ 🎁
   </div>
 </section>
@@ -176,22 +206,19 @@ color:#777;
 <section id="about">
   <h2 class="section-title">ABOUT ISI</h2>
   <p style="color:#ccc;line-height:1.6">
-    ISI is a coordinated force built on discipline, teamwork, and preparedness.
-    This Christmas edition reflects unity and seasonal spirit while keeping
-    everything clean and minimal.
+    Inter-Services Intelligence is built on discipline, coordination, and readiness.
+    This interface reflects an elite, cinematic, and modern intelligence-style presence.
   </p>
 </section>
 
 <section id="contact">
   <h2 class="section-title">CONNECT</h2>
   <p style="color:#ccc">
-    Join our community and stay connected during the festive season.
+    Join our official Discord server to stay connected.
   </p>
-  <p style="margin-top:15px;font-size:1.5rem">
-    🎄 ❄️ 🎅
-  </p>
-  <a href="#" class="connect-btn">
-  <i class="fas fa-link"></i> JOIN US
+
+  <a href="https://discord.gg/26cJSXYy3J" target="_blank" class="connect-btn">
+    <i class="fab fa-discord"></i> JOIN SERVER
   </a>
 </section>
 
